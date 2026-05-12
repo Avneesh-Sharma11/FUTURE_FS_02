@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Mini CRM</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <div class="brand">
+      <div class="logo">C</div>
+      <div>
+        <h1>Mini CRM</h1>
+        <div class="sub">Manage contacts & pipeline</div>
+      </div>
+    </div>
+    <button id="newBtn">+ New Contact</button>
+  </div>
+</header>
+
+<main>
+  <section class="stats">
+    <div class="stat"><div class="lbl"><span class="dot" style="background:var(--primary)"></span>Total</div><div class="val" id="sTotal">0</div></div>
+    <div class="stat"><div class="lbl"><span class="dot" style="background:var(--lead)"></span>Leads</div><div class="val" id="sLead">0</div></div>
+    <div class="stat"><div class="lbl"><span class="dot" style="background:var(--contacted)"></span>Contacted</div><div class="val" id="sContacted">0</div></div>
+    <div class="stat"><div class="lbl"><span class="dot" style="background:var(--customer)"></span>Customers</div><div class="val" id="sCustomer">0</div></div>
+  </section>
+
+  <section class="toolbar">
+    <input id="search" class="search" placeholder="Search by name, email, company…" />
+    <div class="chips" id="chips">
+      <span class="chip active" data-f="All">All</span>
+      <span class="chip" data-f="Lead">Lead</span>
+      <span class="chip" data-f="Contacted">Contacted</span>
+      <span class="chip" data-f="Customer">Customer</span>
+    </div>
+  </section>
+
+  <section class="table">
+    <div class="row head">
+      <div>Name</div><div>Email</div><div>Company</div><div>Status</div><div style="text-align:right">Actions</div>
+    </div>
+    <div id="list"></div>
+  </section>
+</main>
+
+<div class="overlay" id="overlay">
+  <form class="modal" id="form">
+    <h2 id="modalTitle">New Contact</h2>
+    <div class="sub">Fill in the details below.</div>
+    <div class="grid2">
+      <div><label>Name *</label><input name="name" required /></div>
+      <div><label>Company</label><input name="company" /></div>
+      <div><label>Email</label><input name="email" type="email" /></div>
+      <div><label>Phone</label><input name="phone" /></div>
+      <div class="full"><label>Status</label>
+        <select name="status">
+          <option>Lead</option><option>Contacted</option><option>Customer</option>
+        </select>
+      </div>
+      <div class="full"><label>Notes</label><textarea name="notes" rows="3"></textarea></div>
+    </div>
+    <div class="modal-actions">
+      <button type="button" class="btn-ghost" id="cancelBtn">Cancel</button>
+      <button type="submit" id="saveBtn">Create Contact</button>
+    </div>
+  </form>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
